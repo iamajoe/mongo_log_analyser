@@ -12,9 +12,19 @@ make build
 
 ## Stats
 
-Having an input file, calculates and retrieves statistics of that log and saves them on an output file.
-Output file is optional. In the case there isn't an output, it will log to the stdout.
+Having an input file, calculates and retrieves statistics of that log.
 
 ```bash
+# with stdout
+./bin/mongo_logs_analyser stats -i "<file_path>"
+
+# with output file
 ./bin/mongo_logs_analyser stats -i "<file_path>" -o "<output_file_path>"
+
+# minimum ms duration per request
+./bin/mongo_logs_analyser stats -i "<file_path>" -t 1000
+
+# filters out a regex pattern (from valid json array) out of the command log
+./bin/mongo_logs_analyser stats -i "<file_path>" -f '["fooId", "find"]'
+
 ```
